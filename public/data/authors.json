@@ -1,0 +1,52 @@
+{
+  "authors": [
+    {
+      "id": 1,
+      "name": "Padam Raj Joshi",
+      "nameEn": "Padam Raj Joshi",
+      "title": "CEO, TechCorp",
+      "titleEn": "CEO, TechCorp",
+      "image": "/placeholder.svg?height=80&width=80",
+      "bio": "Haamro Views Nepal delivers the most accurate and timely news I've ever experienced. A game-changer for staying informed.",
+      "bioEn": "Haamro Views Nepal delivers the most accurate and timely news I've ever experienced. A game-changer for staying informed.",
+      "articles": 0,
+      "email": "contact@techcorp.com"
+    },
+    {
+      "id": 2,
+      "name": "Bimala Kumari Chand",
+      "nameEn": "Bimala Kumari Chand",
+      "title": "Journalist, Global Times",
+      "titleEn": "Journalist, Global Times",
+      "image": "/placeholder.svg?height=80&width=80",
+      "bio": "The platform's quality journalism and comprehensive coverage make it indispensable for my research and daily updates.",
+      "bioEn": "The platform's quality journalism and comprehensive coverage make it indispensable for my research and daily updates.",
+      "articles": 0,
+      "email": "bimala@globaltimes.com"
+    },
+    {
+      "id": 3,
+      "name": "Alakh Niranjan Luhar",
+      "nameEn": "Alakh Niranjan Luhar",
+      "title": "Business Analyst",
+      "titleEn": "Business Analyst",
+      "image": "/placeholder.svg?height=80&width=80",
+      "bio": "Real-time market insights and verified reporting help me make informed decisions every single day.",
+      "bioEn": "Real-time market insights and verified reporting help me make informed decisions every single day.",
+      "articles": 0,
+      "email": "alakh@businessmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Hari Singh Joshi",
+      "nameEn": "Hari Singh Joshi",
+      "title": "Software Developer",
+      "titleEn": "Software Developer",
+      "image": "/placeholder.svg?height=80&width=80",
+      "bio": "Haamro Views Nepal simplifies complex topics and delivers news in an engaging format. Perfect for busy students like me.",
+      "bioEn": "Haamro Views Nepal simplifies complex topics and delivers news in an engaging format. Perfect for busy students like me.",
+      "articles": 0,
+      "email": "hari@devmail.com"
+    }
+  ]
+}

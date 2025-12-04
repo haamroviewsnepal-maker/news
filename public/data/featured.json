@@ -1,0 +1,19 @@
+{
+  "featured": [
+    {
+      "id": 4,
+      "position": "main",
+      "order": 1
+    },
+    {
+      "id": 2,
+      "position": "side",
+      "order": 1
+    },
+    {
+      "id": 3,
+      "position": "side",
+      "order": 2
+    }
+  ]
+}

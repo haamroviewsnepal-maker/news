@@ -1,0 +1,44 @@
+{
+  "trending": [
+    {
+      "id": 1,
+      "title": "एनपीएल क्रिकेट शुरु हुँदै",
+      "slug": "npl-cricket-starting",
+      "category": "sports",
+      "trending_score": 95,
+      "mentions": 1250
+    },
+    {
+      "id": 2,
+      "title": "नयाँ सरकारी निर्णय",
+      "slug": "new-government-decision",
+      "category": "politics",
+      "trending_score": 87,
+      "mentions": 980
+    },
+    {
+      "id": 3,
+      "title": "रेमिट्यान्स वृद्धि",
+      "slug": "remittance-growth",
+      "category": "business",
+      "trending_score": 82,
+      "mentions": 756
+    },
+    {
+      "id": 4,
+      "title": "शिक्षा सम्बन्धी घोषणा",
+      "slug": "education-announcement",
+      "category": "politics",
+      "trending_score": 78,
+      "mentions": 645
+    },
+    {
+      "id": 5,
+      "title": "स्वास्थ्य सेवा सुधार",
+      "slug": "health-service-improvement",
+      "category": "health",
+      "trending_score": 72,
+      "mentions": 523
+    }
+  ]
+}
