@@ -79,6 +79,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ne"> {/* More relevant for Nepali news site */}
+         <head>
+        {/* Favicon for all browsers */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Optional: PNG version for better quality */}
+        <link rel="icon" type="image/png" href="/favicon.ico" />
+      </head>
+      
       <body className="bg-background text-foreground">
         <LanguageProvider>
           <StickyContactIcons />
