@@ -27,9 +27,9 @@ export default function FeaturedSection({ articles }: { articles: Article[] }) {
           className="block group border-b pb-4 mb-6"
         >
           {/* Title ABOVE image */}
-          <h2 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-red-600 transition-colors">
+          <h3 className="text-3xl md:text-2xl font-bold mb-3 group-hover:text-red-600 transition-colors">
             {article.title}
-          </h2>
+          </h3>
 
           {/* Image */}
           <div className="relative w-full h-64 rounded overflow-hidden">
