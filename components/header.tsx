@@ -84,7 +84,7 @@ export default function Header() {
         </div>
 
         {/* MOBILE: Search + Menu */}
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex  items-center gap-2">
           <Button
             variant="ghost"
             size="icon"
@@ -106,7 +106,7 @@ export default function Header() {
 
       {/* ⭐ LAYER 3 — MOBILE SEARCH BAR */}
       {showMobileSearch && (
-        <div className="px-4 pb-3 md:hidden">
+        <div className="px-4 pb-3">
           <form action="/search" className="flex gap-2">
             <input
               type="search"
