@@ -43,7 +43,6 @@ export default function FeaturedSection({ articles }: { articles: Article[] }) {
 
           {/* Category + Time Row */}
           <div className="flex items-center gap-3 text-sm text-gray-600 mt-3">
-            <span className="text-blue-600 font-semibold">{article.category}</span>
             <span className="text-gray-400">{article.time}</span>
           </div>
 
