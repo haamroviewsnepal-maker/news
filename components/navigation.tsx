@@ -77,7 +77,7 @@ export default function Navigation({ categories }: { categories: Category[] }) {
       </div>
 
       {/* NAVIGATION BAR */}
-      <nav className="border-b border-border bg-background">
+      <nav className="border-b border-border bg-background bg-purple-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 overflow-x-auto py-6 scrollbar-hide">
 
@@ -94,7 +94,7 @@ export default function Navigation({ categories }: { categories: Category[] }) {
               <Link
                 key={category.id}
                 href={`/category/${category.slug}`}
-                className="px-4 py-2 text-sm font-semibold whitespace-nowrap flex items-center gap-2 transition-all
+                className="px-4 py-2 text-xl font-bold whitespace-nowrap flex items-center gap-2 transition-all
                 hover:bg-gradient-to-r hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 
                 hover:text-white rounded-lg"
               >
