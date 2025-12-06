@@ -42,7 +42,7 @@ export function FooterSectionEnhanced() {
     phone: "+977 9843867481",
     copyright:
       language === "en"
-        ? `© 2025 Haamro Views Nepal. All rights reserved. | Design inspired by`
+        ? `© 2025 Haamro Views Nepal. All rights reserved. | Designed and developed by`
         : `© 2025 हाम्रो भ्यूज नेपाल। सर्वाधिकार सुरक्षित।`,
     codeshastra: "Codeshastra",
   }
