@@ -33,9 +33,7 @@ export default function Header() {
     <>
       {/* ⭐ STICKY FIRST LAYER */}
       <div className="sticky top-0 z-50 bg-gradient-to-r from-green-600 via-purple-600 to-red-600 text-white text-sm py-1 shadow">
-        <p className="scroll-text whitespace-nowrap text-lg py-2">
-          🔥 Breaking News: Haamro Views Nepal — ताजा अपडेट, अन्तर्राष्ट्रिय प्रतिक्रिया र विकासका महत्वपूर्ण समाचारहरू एकै स्थानमा…
-        </p>
+       
 
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
           <span>{language === "en" ? "For truthful, factual, and impartial news." : "सत्य, तथ्य र निष्पक्ष समाचारको लागि"}</span>
