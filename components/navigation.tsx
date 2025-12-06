@@ -45,7 +45,9 @@ export default function Navigation({ categories }: { categories: Category[] }) {
   return (
     <>
       {/* TOP BAR */}
-      <div className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white">
+      <div className="w-full bg-gradient-to-r from-emerald-600 via-green-500 to-lime-400 text-white">
+
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between text-sm">
           <div className="flex items-center gap-2">
             <Clock size={16} className="text-yellow-300" />
@@ -60,15 +62,15 @@ export default function Navigation({ categories }: { categories: Category[] }) {
               target="_blank"
               className="hover:opacity-80 transition"
             >
-              <Facebook size={20} className="text-blue-300" />
+              <Facebook size={20} className="text-white-300" />
             </Link>
 
             <Link href="https://instagram.com" target="_blank" className="hover:opacity-80 transition">
-              <Instagram size={20} className="text-pink-300" />
+              <Instagram size={20} className="text-white-300" />
             </Link>
 
             <Link href="https://www.youtube.com/@HaamroViews" target="_blank" className="hover:opacity-80 transition">
-              <Youtube size={22} className="text-red-300" />
+              <Youtube size={22} className="text-white-300" />
             </Link>
           </div>
         </div>
@@ -120,6 +122,12 @@ export default function Navigation({ categories }: { categories: Category[] }) {
             </Link>
 
           </div>
+          <div className="w-full overflow-hidden bg-gray-900 text-white">
+  <p className="scroll-text whitespace-nowrap text-lg py-2">
+    🔥 Breaking News: Haamro Views Nepal — ताजा अपडेट, ब्अन्तर्राष्ट्रिय प्रतिक्रिया र विकासका महत्वपूर्ण समाचारहरू एकै स्थानमा… Haamro Views Nepal ले तपाईँलाई दिनभरका सबै महत्वपूर्ण घटनाहरू छिटो, सही र विश्वसनीय रूपमा प्रस्तुत गर्दछ।
+  </p>
+</div>
+
         </div>
       </nav>
     </>
