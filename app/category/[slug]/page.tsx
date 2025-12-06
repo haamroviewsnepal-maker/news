@@ -156,12 +156,7 @@ export default function CategoryPage() {
                 {/* Content */}
                 <div className="flex-1 flex flex-col p-4">
                   <div className="flex items-center gap-2 mb-3">
-                    <span
-                      className="inline-block px-2 py-1 rounded text-xs font-semibold text-white"
-                      style={{ backgroundColor: currentCategory?.color || "#999" }}
-                    >
-                      {article.category.toUpperCase()}
-                    </span>
+                  
                     <span className="text-xs text-muted-foreground">{article.time}</span>
                   </div>
 
