@@ -109,16 +109,7 @@ export default function CategoryPage() {
           <span>फर्कनुहोस्</span>
         </Link>
 
-        {/* Category Header */}
-        {currentCategory && (
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-4xl">{currentCategory.icon}</span>
-              <h1 className="text-4xl font-bold text-foreground">{currentCategory.name}</h1>
-            </div>
-            <p className="text-muted-foreground text-lg">{currentCategory.description}</p>
-          </div>
-        )}
+       
 
         {/* Search Bar */}
         <div className="mb-8">
