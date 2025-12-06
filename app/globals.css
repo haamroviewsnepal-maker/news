@@ -114,6 +114,22 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scroll-text {
+  display: inline-block;
+  animation: scrollText 15s linear infinite;
+}
+
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
