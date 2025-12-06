@@ -24,7 +24,7 @@ export default function ContactPage() {
     en: {
       title: "Contact Us",
       description: "Get in touch with Haamro Views Nepal",
-      address: "Bedkot Municipality, Kanchanpur, Nepal",
+      address: "Kathmandu Submertopolitan City-10, Nepal",
       phone_number: "+977 9843867481",
       email_address: "haamroviewsnepal@gmail.com",
       hours: "Contact Hours: Mon–Fri, 9AM–5PM NPT",
