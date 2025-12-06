@@ -21,14 +21,14 @@ export default function MobileMenu({ open, onClose, categories }: MobileMenuProp
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"  // removed md:hidden
+      className="fixed inset-0 z-50 bg-black/40"
       onClick={onClose}
     >
       <div
-        className="w-72 h-full bg-white shadow-2xl p-4 overflow-y-auto animate-slideInLeft"
+        className="w-72 h-full bg-white shadow-2xl p-4 overflow-y-auto animate-slideInRight fixed right-0 top-0"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* CLOSE BUTTON — previously hidden on desktop due to md:hidden */}
+        {/* CLOSE BUTTON */}
         <button
           onClick={onClose}
           className="mb-4 flex justify-end text-gray-700 hover:text-black"
