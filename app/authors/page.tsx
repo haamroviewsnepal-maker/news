@@ -6,6 +6,7 @@ import Footer from "@/components/footer"
 import { useLanguage } from "@/contexts/language-context"
 import { useState, useEffect } from "react"
 import { Mail } from "lucide-react"
+import Image from "next/image"
 
 export default function AuthorsPage() {
   const { language } = useLanguage()
@@ -32,24 +33,72 @@ export default function AuthorsPage() {
       <Navigation categories={categories} />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
-        <h1 className="text-4xl font-bold mb-2 text-foreground">{language === "en" ? "Our Authors" : "हाम्रो लेखकहरू"}</h1>
-        <p className="text-lg text-muted-foreground mb-12">
+        
+      
+        <div className="flex items-center gap-4 mb-8">
+          
+          {/* MAIN LOGO */}
+          <Image 
+            src="/backgroundlogo.png"
+            alt="Logo"
+            width={60}
+            height={60}
+            className="object-contain"
+          />
+
+          {/* PAGE TITLE WITH GRADIENT */}
+          <h1 className="text-4xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+            {language === "en" ? "Our Authors" : "हाम्रो लेखकहरू"}
+          </h1>
+
+          {/* NEPAL FLAG (only when Nepali language is selected) */}
+          {language === "ne" && (
+            <Image
+              src="/nepal.png"
+              alt="Nepal Flag"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+          )}
+
+        </div>
+
+        {/* SUBTITLE WITH SOFT GRADIENT */}
+        <p className="text-lg mb-12 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
           {language === "en"
             ? "Meet the talented journalists and writers behind Haamro Views Nepal"
-            : "हामरो भ्यूज नेपाल पछाडिका प्रतिभाशाली पत्रकार र लेखकहरूसँग मेल गर्नुहोस्"}
+            : "हामरो भ्यूज नेपाल पछाडिका प्रतिभाशाली पत्रकार र लेखकहरू"}
         </p>
 
+     
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {authors.map((author) => (
             <div
               key={author.id}
               className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
             >
-              <img src={author.image || "/placeholder.svg"} alt={author.name} className="w-full h-64 object-cover" />
+              <img
+                src={author.image || "/placeholder.svg"}
+                alt={author.name}
+                className="w-full h-64 object-cover"
+              />
+
               <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-1">{author.name}</h3>
-                <p className="text-sm text-primary mb-3">{language === "en" ? author.titleEn : author.title}</p>
-                <p className="text-sm text-muted-foreground mb-4">{language === "en" ? author.bioEn : author.bio}</p>
+
+                {/* AUTHOR NAME WITH GRADIENT */}
+                <h3 className="text-xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                  {author.name}
+                </h3>
+
+                {/* AUTHOR TITLE WITH SMALLER GRADIENT */}
+                <p className="text-sm bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-3">
+                  {language === "en" ? author.titleEn : author.title}
+                </p>
+
+                <p className="text-sm text-muted-foreground mb-4">
+                  {language === "en" ? author.bioEn : author.bio}
+                </p>
 
                 <div className="flex items-center justify-between text-xs text-muted-foreground mb-4 pb-4 border-t border-border pt-4">
                   <span>
@@ -59,11 +108,12 @@ export default function AuthorsPage() {
 
                 <a
                   href={`mailto:${author.email}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium w-full justify-center"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-lg hover:opacity-90 transition-colors text-sm font-medium w-full justify-center"
                 >
                   <Mail className="h-4 w-4" />
                   {language === "en" ? "Contact" : "सम्पर्क"}
                 </a>
+
               </div>
             </div>
           ))}
