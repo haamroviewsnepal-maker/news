@@ -1,0 +1,23 @@
+{
+  "gold": {
+    "fine": "Rs 252,400 / tola",
+    "tejjabi": "Rs 250,000 / tola"
+  },
+  "silver": {
+    "price": "Rs 3,555 / tola"
+  },
+  "stock_market": {
+    "nepse": "2130.50",
+    "gain_loss": "+12.40"
+  },
+  "fuel": {
+    "petrol": "Rs 175 / Ltr",
+    "diesel": "Rs 165 / Ltr",
+    "gas": "Rs 1,800 / Cylinder"
+  },
+  "currency": {
+    "usd": "Rs 133.25",
+    "eur": "Rs 145.60",
+    "inr": "Rs 1.60"
+  }
+}

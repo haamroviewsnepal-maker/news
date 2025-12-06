@@ -17,7 +17,7 @@ export default function Footer({ categories }: { categories: Category[] }) {
   const { language } = useLanguage()
 
   const footerLabels = {
-    title: language === "en" ? "Haamro Views Nepal" : "हामरो भ्यूज नेपाल",
+    title: language === "en" ? "Haamro Views Nepal" : "हाम्रो भ्यूज नेपाल",
     tagline: language === "en" ? "Nepal's Trusted News Source" : "नेपालको विश्वस्त समाचार स्रोत",
     categories: language === "en" ? "Categories" : "विषयवस्तु",
     information: language === "en" ? "Information" : "जानकारी",

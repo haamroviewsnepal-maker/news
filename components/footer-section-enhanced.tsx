@@ -35,14 +35,14 @@ export function FooterSectionEnhanced() {
     termsDesc:
       language === "en"
         ? "By using Haamro Views Nepal, you agree to our terms and conditions. These terms govern your use of our website and services. We reserve the right to update these terms. Please review them periodically for any changes."
-        : "हामरो भ्यूज नेपाल प्रयोग गरेर तपाइँ हामरो सर्तहरूसँत सहमत हुनुहुन्छ।",
+        : "हाम्रो भ्यूज नेपाल प्रयोग गरेर तपाइँ हामरो सर्तहरूसँत सहमत हुनुहुन्छ।",
     contactInfo: language === "en" ? "Contact Info" : "सम्पर्क जानकारी",
     email: "haamroviewsnepal@gmail.com",
     phone: "+977 9843867481",
     copyright:
       language === "en"
         ? `© 2025 Haamro Views Nepal. All rights reserved. | Design inspired by`
-        : `© 2025 हामरो भ्यूज नेपाल। सर्वाधिकार सुरक्षित।`,
+        : `© 2025 हाम्रो भ्यूज नेपाल। सर्वाधिकार सुरक्षित।`,
     codeshastra: "Codeshastra",
   }
 

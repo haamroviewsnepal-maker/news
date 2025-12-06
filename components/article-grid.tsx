@@ -64,9 +64,10 @@ export default function ArticleGrid({ articles, categories }: { articles: Articl
                   <span className="text-xs md:text-sm text-muted-foreground">{article.time}</span>
                 </div>
 
-                <h3 className="text-base md:text-lg font-bold text-foreground group-hover:text-red-600 transition-colors line-clamp-2">
+                <h3 className="text-base md:text-lg font-bold text-green-600 group-hover:text-red-700 transition-colors line-clamp-2">
                   {article.title}
                 </h3>
+
 
                 <p className="text-xs md:text-sm text-muted-foreground mt-2 line-clamp-2">{article.excerpt}</p>
               </div>

@@ -8,6 +8,8 @@ import ArticleGrid from "@/components/article-grid"
 import TrendingSection from "@/components/trending-section"
 import { FooterSectionEnhanced } from "@/components/footer-section-enhanced"
 import { useLanguage } from "@/contexts/language-context"
+import FooterSocialBar from "@/components/FooterSocialBar"
+import DailyInfoSection from "@/components/DailyInfoSection"
 
 export default function Home() {
   const [articles, setArticles] = useState([])
@@ -70,8 +72,10 @@ export default function Home() {
             <TrendingSection trending={trending} articles={articles} />
           </aside>
         </div>
+          <DailyInfoSection />
+         <FooterSocialBar />
       </main>
-
+    
       <FooterSectionEnhanced />
     </div>
   )
