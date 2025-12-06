@@ -46,8 +46,6 @@ export default function Navigation({ categories }: { categories: Category[] }) {
     <>
       {/* TOP BAR */}
       <div className="w-full bg-gradient-to-r from-emerald-600 via-green-500 to-lime-400 text-white">
-
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between text-sm">
           <div className="flex items-center gap-2">
             <Clock size={16} className="text-yellow-300" />
@@ -62,39 +60,41 @@ export default function Navigation({ categories }: { categories: Category[] }) {
               target="_blank"
               className="hover:opacity-80 transition"
             >
-              <Facebook size={20} className="text-white-300" />
+              <Facebook size={20} className="text-white" />
             </Link>
 
             <Link href="https://instagram.com" target="_blank" className="hover:opacity-80 transition">
-              <Instagram size={20} className="text-white-300" />
+              <Instagram size={20} className="text-white" />
             </Link>
 
             <Link href="https://www.youtube.com/@HaamroViews" target="_blank" className="hover:opacity-80 transition">
-              <Youtube size={22} className="text-white-300" />
+              <Youtube size={22} className="text-white" />
             </Link>
           </div>
         </div>
       </div>
 
       {/* NAVIGATION BAR */}
-      <nav className="border-b border-border bg-background bg-purple-600">
+      <nav className="border-b border-border bg-purple-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 overflow-x-auto py-6 scrollbar-hide">
 
+            {/* Home */}
             <Link
               href="/"
-              className="px-4 py-2 text-sm font-semibold whitespace-nowrap transition-all 
+              className="px-4 py-2 text-lg font-bold whitespace-nowrap text-white transition-all 
               hover:bg-gradient-to-r hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 
               hover:text-white rounded-lg"
             >
               {navLabels.home}
             </Link>
 
+            {/* Categories */}
             {categories.map((category) => (
               <Link
                 key={category.id}
                 href={`/category/${category.slug}`}
-                className="px-4 py-2 text-xl font-bold whitespace-nowrap flex items-center gap-2 transition-all
+                className="px-4 py-2 text-lg font-bold whitespace-nowrap flex items-center gap-2 text-white transition-all
                 hover:bg-gradient-to-r hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 
                 hover:text-white rounded-lg"
               >
@@ -103,18 +103,20 @@ export default function Navigation({ categories }: { categories: Category[] }) {
               </Link>
             ))}
 
+            {/* Videos */}
             <Link
               href="/videos"
-              className="px-4 py-2 text-sm font-semibold whitespace-nowrap transition-all 
+              className="px-4 py-2 text-lg font-bold whitespace-nowrap text-white transition-all
               hover:bg-gradient-to-r hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 
               hover:text-white rounded-lg"
             >
               {navLabels.videos}
             </Link>
 
+            {/* Opinions */}
             <Link
               href="/opinions"
-              className="px-4 py-2 text-sm font-semibold whitespace-nowrap transition-all 
+              className="px-4 py-2 text-lg font-bold whitespace-nowrap text-white transition-all 
               hover:bg-gradient-to-r hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 
               hover:text-white rounded-lg"
             >
@@ -122,15 +124,15 @@ export default function Navigation({ categories }: { categories: Category[] }) {
             </Link>
 
           </div>
+
+          {/* Breaking News Bar */}
           <div className="w-full overflow-hidden bg-gray-900 text-white">
-<p className="scroll-text whitespace-nowrap text-lg py-2 px-4 
-  bg-red-700 text-white font-semibold tracking-wide shadow-md 
-  border-l-4 border-yellow-400">
-  🔥 Breaking News: Haamro Views Nepal — ताजा अपडेट, अन्तर्राष्ट्रिय प्रतिक्रिया र विकासका महत्वपूर्ण समाचारहरू एकै स्थानमा…
-</p>
-
-
-</div>
+            <p className="scroll-text whitespace-nowrap text-lg py-2 px-4 
+              bg-red-700 text-white font-semibold tracking-wide shadow-md 
+              border-l-4 border-yellow-400">
+              🔥 Breaking News: Haamro Views Nepal — ताजा अपडेट, अन्तर्राष्ट्रिय प्रतिक्रिया र विकासका महत्वपूर्ण समाचारहरू एकै स्थानमा…
+            </p>
+          </div>
 
         </div>
       </nav>
