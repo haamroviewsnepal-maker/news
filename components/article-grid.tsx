@@ -64,12 +64,7 @@ export default function ArticleGrid({
 
             {/* CATEGORY + TIME */}
             <div className="flex items-center gap-3 px-4 mt-3">
-              <span
-                className="text-xs px-2 py-1 rounded text-white font-semibold"
-                style={{ backgroundColor: getCategoryColor(article.category) }}
-              >
-                {article.category.toUpperCase()}
-              </span>
+            
 
               <span className="text-xs text-gray-500">{article.time}</span>
             </div>
