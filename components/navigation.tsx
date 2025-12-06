@@ -123,6 +123,11 @@ export default function Navigation({ categories }: { categories: Category[] }) {
 
           </div>
           <div className="w-full overflow-hidden bg-gray-900 text-white">
+<p className="scroll-text whitespace-nowrap text-lg py-2 px-4 
+  bg-red-700 text-white font-semibold tracking-wide shadow-md 
+  border-l-4 border-yellow-400">
+  🔥 Breaking News: Haamro Views Nepal — ताजा अपडेट, अन्तर्राष्ट्रिय प्रतिक्रिया र विकासका महत्वपूर्ण समाचारहरू एकै स्थानमा…
+</p>
 
 
 </div>
