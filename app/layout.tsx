@@ -5,7 +5,7 @@ import { StickyContactIcons } from "@/components/sticky-contact-icons"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.haamroviewsnepal.com"), // 🔥 change to your domain
+  metadataBase: new URL("https://www.haamroviewsnepal.com"),
 
   title: {
     default: "Haamro Views Nepal – नेपालको विश्वस्त समाचार स्रोत",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
       "नेपालको विश्वस्त समाचार स्रोत— राजनीति, खेलकुद, व्यवसाय, स्वास्थ्य, मनोरञ्जन र विश्व समाचारहरू प्राप्त गर्नुहोस्।",
     images: [
       {
-        url: "/og-image.png", // optional (place inside public/)
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Haamro Views Nepal",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Haamro Views Nepal",
     description:
       "नेपालको विश्वस्त समाचार स्रोत — ताजा खबरहरू राजनीति, खेलकुद, व्यवसाय, स्वास्थ्य र मनोरञ्जनबाट।",
-    images: ["/og-image.png"], // optional
+    images: ["/og-image.png"],
   },
 
   robots: {
@@ -63,7 +63,6 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-    
     },
   },
 
@@ -78,22 +77,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ne"> {/* More relevant for Nepali news site */}
-<<<<<<< HEAD
-     <head>
-=======
-         <head>
->>>>>>> 256f686221d593fc70c95def7cc40c257687a512
-        {/* Favicon for all browsers */}
+    <html lang="ne">
+      <head>
+        {/* Favicon for browsers */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        {/* Optional: PNG version for better quality */}
         <link rel="icon" type="image/png" href="/favicon.ico" />
       </head>
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> 256f686221d593fc70c95def7cc40c257687a512
       <body className="bg-background text-foreground">
         <LanguageProvider>
           <StickyContactIcons />
