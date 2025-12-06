@@ -61,7 +61,7 @@ export default function ContactPage() {
             <div className="w-full h-80 md:h-full overflow-hidden rounded-xl shadow-md border border-border">
               <iframe
                 title="Bedkot Municipality Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3538.0639511138874!2d80.29887!3d28.825663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a2c015ebd919af%3A0x8bbd182d4c8768e7!2sBedkot%20Municipality!5e0!3m2!1sen!2snp!4v1706000000000"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14130.2695039495!2d85.31369394113017!3d27.699763132908927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199d227be36f%3A0x743a972579c61870!2sKathmandu%20Metropolitan%20City%20Office%20Ward%20No.%2010!5e0!3m2!1sen!2sin!4v1765025296169!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
