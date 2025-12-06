@@ -38,7 +38,7 @@ export default function ArticleGrid({
 
   return (
     <section>
-      <h2 className="text-2xl md:text-3xl font-bold mb-6">ताजा समाचार</h2>
+      <h2 className="text-5xl md:text-5xl font-bold mb-6">ताजा समाचार</h2>
 
       <div className="grid grid-cols-1 gap-6">
         {articles.map((article) => (
