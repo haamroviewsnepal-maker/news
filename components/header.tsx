@@ -1,108 +1,130 @@
 "use client"
+
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Search } from "lucide-react"
+import { Search, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import LanguageToggle from "@/components/language-toggle"
 import { useLanguage } from "@/contexts/language-context"
-import { useState } from "react"
+import MobileMenu from "./mobile-menu"
 
 export default function Header() {
   const [showMobileSearch, setShowMobileSearch] = useState(false)
-  const { t, language } = useLanguage()  // ⬅️ Added `language`
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
+  const [categories, setCategories] = useState([])
+
+  const { t, language } = useLanguage()
+
+  useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        const res = await fetch("/data/categories.json")
+        const data = await res.json()
+        setCategories(data.categories)
+      } catch (error) {
+        console.error("Failed to load categories:", error)
+      }
+    }
+    loadCategories()
+  }, [])
 
   return (
-    <header className="border-b border-border bg-card sticky top-0 z-50 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 shadow bg-white text-black">
 
-        {/* MAIN ROW */}
-        <div className="flex items-center justify-between h-20">
+      {/* ⭐ LAYER 1 — TOP MINI BAR */}
+      <div className="w-full bg-gradient-to-r from-green-600 via-purple-600 to-red-600 text-white text-sm py-1">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
 
-          {/* LEFT: LOGO + TITLE */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-16 h-16 flex items-center justify-center">
-              <Image
-                src="/backgroundlogo.png"
-                alt="Logo"
-                width={64}
-                height={64}
-                className="object-contain"
-              />
-            </div>
+          {/* Left side: Time or small info */}
+          <span>{language === "en" ? "For truthful, factual, and impartial news." : "सत्य तथ्य र निष्पक्ष  सामाचारको लागि"}</span>
+          
 
-            <span className="text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          {/* Right side: Language toggle */}
+          <LanguageToggle />
+        </div>
+      </div>
+      <div className="w-full mx-auto px-4 py-3 flex items-center justify-between bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white">
+
+        {/* LEFT: Logo + Title + Flag */}
+        <Link href="/" className="flex items-center gap-3">
+          <Image src="/logo.png" alt="Logo" width={60} height={60} />
+
+          {/* Title + optional flag */}
+          <div className="flex items-center gap-2">
+            <span className="text-3xl font-extrabold text-white-900 tracking-wide">
               {t("title")}
             </span>
 
-            {/* SHOW FLAG ONLY IF NEPALI IS SELECTED */}
             {language === "ne" && (
               <Image
                 src="/nepal.png"
                 alt="Nepal Flag"
-                width={32}
-                height={32}
-                className="object-contain"
+                width={38}
+                height={38}
+                className="rounded shadow"
               />
             )}
-          </Link>
-
-          {/* CENTER: Search Bar (Desktop Only) */}
-          <div className="hidden md:flex flex-1 justify-center">
-            <div className="relative w-full max-w-md">
-              <form action="/search" method="get">
-                <input
-                  type="search"
-                  name="q"
-                  placeholder={t("searchPlaceholder")}
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-                <Search className="absolute right-3 top-2.5 h-5 w-5 text-muted-foreground pointer-events-none" />
-              </form>
-            </div>
           </div>
+        </Link>
 
-          {/* RIGHT ACTIONS */}
-          <div className="flex items-center gap-2 md:gap-4">
-            {/* Mobile search button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setShowMobileSearch(!showMobileSearch)}
-              className="md:hidden"
-            >
-              <Search className="h-6 w-6" />
-            </Button>
+        {/* RIGHT: Desktop Search + Sign In */}
+        <div className="hidden md:flex items-center gap-3">
+          <form action="/search" className="relative">
+            <input
+              type="search"
+              name="q"
+              placeholder={t("searchPlaceholder")}
+              className="px-4 py-2 rounded border bg-white text-black w-64"
+            />
+            <Search className="absolute right-3 top-2.5 h-5 w-5 text-gray-500" />
+          </form>
 
-            {/* Language Toggle */}
-            <LanguageToggle />
-
-            {/* Sign In (Desktop Only) */}
-            <Button variant="outline" className="hidden md:inline-flex bg-transparent">
-              {t("signIn")}
-            </Button>
-          </div>
+          <Button variant="outline">{t("signIn")}</Button>
         </div>
 
-        {/* MOBILE SEARCH BAR */}
-        {showMobileSearch && (
-          <div className="pb-4 md:hidden">
-            <div className="relative">
-              <form action="/search" method="get" className="flex gap-2">
-                <input
-                  type="search"
-                  name="q"
-                  placeholder={t("searchPlaceholder")}
-                  className="flex-1 px-4 py-2 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  autoFocus
-                />
-                <Button type="submit" size="sm">
-                  {t("searchButton")}
-                </Button>
-              </form>
-            </div>
-          </div>
-        )}
+        {/* MOBILE: Search + Menu */}
+        <div className="flex md:hidden items-center gap-2">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setShowMobileSearch(!showMobileSearch)}
+          >
+            <Search className="h-6 w-6 text-gray-800" />
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setShowMobileMenu(true)}
+          >
+            <Menu className="h-7 w-7 text-gray-800" />
+          </Button>
+        </div>
+
       </div>
+
+      {/* ⭐ LAYER 3 — MOBILE SEARCH BAR */}
+      {showMobileSearch && (
+        <div className="px-4 pb-3 md:hidden">
+          <form action="/search" className="flex gap-2">
+            <input
+              type="search"
+              name="q"
+              className="flex-1 px-4 py-2 border rounded-lg"
+              placeholder={t("searchPlaceholder")}
+            />
+            <Button size="sm">{t("searchButton")}</Button>
+          </form>
+        </div>
+      )}
+
+      {/* ⭐ MOBILE MENU */}
+      <MobileMenu
+        open={showMobileMenu}
+        onClose={() => setShowMobileMenu(false)}
+        categories={categories}
+      />
     </header>
   )
-}
+}  
