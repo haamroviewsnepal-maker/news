@@ -115,12 +115,7 @@ export default function ArticlePage() {
         {/* Article Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
-            <span
-              className="inline-block px-3 py-1 rounded text-sm font-bold text-white"
-              style={{ backgroundColor: getCategoryColor(article.category) }}
-            >
-              {article.category.toUpperCase()}
-            </span>
+           
             <span className="text-muted-foreground text-sm">{article.time}</span>
           </div>
 
