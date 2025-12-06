@@ -1,50 +1,49 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Search, Menu } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import LanguageToggle from "@/components/language-toggle"
-import { useLanguage } from "@/contexts/language-context"
-import MobileMenu from "./mobile-menu"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Search, Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import LanguageToggle from "@/components/language-toggle";
+import { useLanguage } from "@/contexts/language-context";
+import MobileMenu from "./mobile-menu";
 
 export default function Header() {
-  const [showMobileSearch, setShowMobileSearch] = useState(false)
-  const [showMobileMenu, setShowMobileMenu] = useState(false)
-  const [categories, setCategories] = useState([])
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [categories, setCategories] = useState([]);
 
-  const { t, language } = useLanguage()
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     const loadCategories = async () => {
       try {
-        const res = await fetch("/data/categories.json")
-        const data = await res.json()
-        setCategories(data.categories)
+        const res = await fetch("/data/categories.json");
+        const data = await res.json();
+        setCategories(data.categories);
       } catch (error) {
-        console.error("Failed to load categories:", error)
+        console.error("Failed to load categories:", error);
       }
-    }
-    loadCategories()
-  }, [])
+    };
+    loadCategories();
+  }, []);
 
   return (
     <>
       {/* ⭐ STICKY FIRST LAYER */}
       <div className="sticky top-0 z-50 bg-gradient-to-r from-green-600 via-purple-600 to-red-600 text-white text-sm py-1 shadow">
-       
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+          <span className="text-sm font-bold">
+            {language === "en"
+              ? "For truthful, factual, and impartial news."
+              : "सत्य, तथ्य र निष्पक्ष समाचारको लागि"}
+          </span>
+          <LanguageToggle />
+        </div>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-  <span className="text-sm font-bold">
-    {language === "en"
-      ? "For truthful, factual, and impartial news."
-      : "सत्य, तथ्य र निष्पक्ष समाचारको लागि"}
-  </span>
-  <LanguageToggle />
-</div>
-
-      {/* ⭐ NON-STICKY HEADER CONTENT */}
+      {/* ⭐ MAIN HEADER */}
       <header className="bg-white text-black shadow">
         <div className="w-full mx-auto px-4 py-3 flex items-center justify-between bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white">
 
@@ -54,7 +53,13 @@ export default function Header() {
             <div className="flex items-center gap-2">
               <span className="text-4xl font-extrabold tracking-wide">{t("title")}</span>
               {language === "ne" && (
-                <Image src="/nepal.png" alt="Nepal Flag" width={38} height={38} className="rounded shadow" />
+                <Image
+                  src="/nepal.png"
+                  alt="Nepal Flag"
+                  width={38}
+                  height={38}
+                  className="rounded shadow"
+                />
               )}
             </div>
           </Link>
@@ -75,14 +80,21 @@ export default function Header() {
 
           {/* MOBILE BUTTONS */}
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" onClick={() => setShowMobileSearch(!showMobileSearch)}>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setShowMobileSearch(!showMobileSearch)}
+            >
               <Search className="h-6 w-6 text-gray-800" />
             </Button>
-            <Button variant="ghost" size="icon" onClick={() => setShowMobileMenu(true)}>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setShowMobileMenu(true)}
+            >
               <Menu className="h-7 w-7 text-gray-800" />
             </Button>
           </div>
-
         </div>
 
         {/* MOBILE SEARCH BAR */}
@@ -101,8 +113,12 @@ export default function Header() {
         )}
 
         {/* MOBILE MENU */}
-        <MobileMenu open={showMobileMenu} onClose={() => setShowMobileMenu(false)} categories={categories} />
+        <MobileMenu
+          open={showMobileMenu}
+          onClose={() => setShowMobileMenu(false)}
+          categories={categories}
+        />
       </header>
     </>
-  )
+  );
 }
