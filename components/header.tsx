@@ -34,6 +34,9 @@ export default function Header() {
 
       {/* ⭐ LAYER 1 — TOP MINI BAR */}
       <div className="w-full bg-gradient-to-r from-green-600 via-purple-600 to-red-600 text-white text-sm py-1">
+        <p className="scroll-text whitespace-nowrap text-lg py-2">
+  🔥 Breaking News: Haamro Views Nepal — ताजा अपडेट, अन्तर्राष्ट्रिय प्रतिक्रिया र विकासका महत्वपूर्ण समाचारहरू एकै स्थानमा… Haamro Views Nepal तपाईंलाई दिनभरिका सबै महत्वपूर्ण घटनाहरू छिटो, सही र विश्‍वासयोग्य रूपमा प्रस्तुत गर्दछ।
+</p>
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
 
           {/* Left side: Time or small info */}
