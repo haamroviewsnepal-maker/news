@@ -37,23 +37,67 @@ export default function TrendingRates() {
   const gainLoss = parseFloat(rates.stock_market.gain_loss);
 
   const items = [
-    { title: "Fine Gold", value: rates.gold.fine, icon: <Gem className="text-yellow-500" size={16} />, link: "/gold" },
-    { title: "Tejjabi Gold", value: rates.gold.tejjabi, icon: <Gem className="text-yellow-500" size={16} />, link: "/gold" },
-    { title: "Silver", value: rates.silver.price, icon: <Coins className="text-gray-500" size={16} />, link: "/silver" },
+    {
+      title: "Fine Gold",
+      value: rates.gold.fine,
+      icon: <Gem className="text-yellow-500" size={16} />,
+      link: "https://nepalgoldrate.com/",
+    },
+    {
+      title: "Tejjabi Gold",
+      value: rates.gold.tejjabi,
+      icon: <Gem className="text-yellow-500" size={16} />,
+      link: "https://nepalgoldrate.com/",
+    },
+    {
+      title: "Silver",
+      value: rates.silver.price,
+      icon: <Coins className="text-gray-500" size={16} />,
+      link: "https://nepalgoldrate.com/",
+    },
     {
       title: "NEPSE",
       value: rates.stock_market.nepse,
       icon: <TrendingUp className="text-green-600" size={16} />,
       change: rates.stock_market.gain_loss,
-      link: "/stock-market",
-      type: gainLoss >= 0 ? "gain" : "loss",
+      link: "https://www.nepalstock.com/",
     },
-    { title: "Petrol", value: rates.fuel.petrol, icon: <Fuel className="text-red-600" size={16} />, link: "/fuel" },
-    { title: "Diesel", value: rates.fuel.diesel, icon: <Fuel className="text-red-600" size={16} />, link: "/fuel" },
-    { title: "Gas", value: rates.fuel.gas, icon: <Fuel className="text-red-600" size={16} />, link: "/fuel" },
-    { title: "USD", value: rates.currency.usd, icon: <DollarSign className="text-blue-600" size={16} />, link: "/currency" },
-    { title: "EUR", value: rates.currency.eur, icon: <DollarSign className="text-blue-600" size={16} />, link: "/currency" },
-    { title: "INR", value: rates.currency.inr, icon: <DollarSign className="text-blue-600" size={16} />, link: "/currency" },
+    {
+      title: "Petrol",
+      value: rates.fuel.petrol,
+      icon: <Fuel className="text-red-600" size={16} />,
+      link: "https://noc.org.np/",
+    },
+    {
+      title: "Diesel",
+      value: rates.fuel.diesel,
+      icon: <Fuel className="text-red-600" size={16} />,
+      link: "https://noc.org.np/",
+    },
+    {
+      title: "Gas",
+      value: rates.fuel.gas,
+      icon: <Fuel className="text-red-600" size={16} />,
+      link: "https://noc.org.np/",
+    },
+    {
+      title: "USD",
+      value: rates.currency.usd,
+      icon: <DollarSign className="text-blue-600" size={16} />,
+      link: "https://www.nrb.org.np/forex/",
+    },
+    {
+      title: "EUR",
+      value: rates.currency.eur,
+      icon: <DollarSign className="text-blue-600" size={16} />,
+      link: "https://www.nrb.org.np/forex/",
+    },
+    {
+      title: "INR",
+      value: rates.currency.inr,
+      icon: <DollarSign className="text-blue-600" size={16} />,
+      link: "https://www.nrb.org.np/forex/",
+    },
   ];
 
   const loopItems = [...items, ...items]; // infinite loop
@@ -66,10 +110,12 @@ export default function TrendingRates() {
         <div className="scroll-wrapper">
           <div className="scroll-content flex items-center">
             {loopItems.map((item, i) => (
-              <Link
+              <a
                 key={i}
                 href={item.link}
-                className="min-w-[140px] sm:min-w-[180px] px-3 py-2 border-l flex flex-col hover:bg-gray-50 transition"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="min-w-[140px] sm:min-w-[180px] px-3 py-2 border-l flex flex-col hover:bg-gray-50 transition cursor-pointer"
               >
                 <div className="flex items-center gap-1 text-gray-600 text-xs sm:text-sm truncate">
                   {item.icon}
@@ -90,7 +136,7 @@ export default function TrendingRates() {
                     {gainLoss >= 0 ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />}
                   </div>
                 )}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -104,7 +150,7 @@ export default function TrendingRates() {
           white-space: nowrap;
         }
 
-        /* ❗ Faster + smoother animation for mobile */
+        /* Faster + smoother animation */
         .scroll-content {
           animation: scroll-left 6s linear infinite;
         }
