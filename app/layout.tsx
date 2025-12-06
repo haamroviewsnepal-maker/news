@@ -78,12 +78,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ne">
-      <head>
-        {/* Favicon for browsers */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-      </head>
-
       <body className="bg-background text-foreground">
         <LanguageProvider>
           <StickyContactIcons />
