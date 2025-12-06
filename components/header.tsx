@@ -35,11 +35,14 @@ export default function Header() {
       <div className="sticky top-0 z-50 bg-gradient-to-r from-green-600 via-purple-600 to-red-600 text-white text-sm py-1 shadow">
        
 
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-          <span>{language === "en" ? "For truthful, factual, and impartial news." : "सत्य, तथ्य र निष्पक्ष समाचारको लागि"}</span>
-          <LanguageToggle />
-        </div>
-      </div>
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+  <span className="text-sm font-bold">
+    {language === "en"
+      ? "For truthful, factual, and impartial news."
+      : "सत्य, तथ्य र निष्पक्ष समाचारको लागि"}
+  </span>
+  <LanguageToggle />
+</div>
 
       {/* ⭐ NON-STICKY HEADER CONTENT */}
       <header className="bg-white text-black shadow">
