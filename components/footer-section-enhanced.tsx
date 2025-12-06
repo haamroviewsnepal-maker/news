@@ -29,7 +29,6 @@ export function FooterSectionEnhanced() {
 
   const { language } = useLanguage()
 
-  // Load categories dynamically
   useEffect(() => {
     const loadCategories = async () => {
       try {
@@ -40,30 +39,10 @@ export function FooterSectionEnhanced() {
         console.error("Failed to load categories:", error)
       }
     }
-
     loadCategories()
   }, [])
 
-  // Labels Type
-  interface Labels {
-    quickLinks: string
-    home: string
-    newsCategories: string
-    newsletter: string
-    subscribe: string
-    privacyPolicy: string
-    privacyDesc: string
-    termsConditions: string
-    termsDesc: string
-    contactInfo: string
-    email: string
-    phone: string
-    copyright: string
-    codeshastra: string
-  }
-
-  // All Labels
-  const labels: Labels = {
+  const labels = {
     quickLinks: language === "en" ? "Quick Links" : "द्रुत लिङ्कहरू",
     home: language === "en" ? "Home" : "गृह",
     newsCategories: language === "en" ? "Categories" : "विषयवस्तु",
@@ -93,20 +72,25 @@ export function FooterSectionEnhanced() {
   }
 
   return (
-    <footer className="bg-card/50 border-t border-border">
-      {/* Main Footer */}
+    <footer className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white border-t border-border backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 py-16">
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
 
           {/* Brand Section */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-12 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">HVN</span>
+                 <Image
+                src="/logo.png"
+                alt="Nepal Flag"
+                width={90}
+                height={90}
+                className="ml-1"
+              />
               </div>
 
-              <span className="font-extrabold text-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+              <span className="font-extrabold text-2xl text-white bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
                 Haamro Views Nepal
               </span>
 
@@ -119,27 +103,24 @@ export function FooterSectionEnhanced() {
               />
             </div>
 
-            <p className="text-muted-foreground text-sm mb-4">
+            <p className="text-white-foreground text-sm mb-4">
               {language === "en"
                 ? "Your trusted source for real-time, verified news and global insights."
                 : "नेपालको विश्वस्त समाचार स्रोत"}
             </p>
 
-            {/* Social Icons */}
             <div className="flex gap-3">
-              <a href="#"><Facebook className="w-5 h-5 text-muted-foreground" /></a>
-              <a href="#"><Twitter className="w-5 h-5 text-muted-foreground" /></a>
-              <a href="#"><Instagram className="w-5 h-5 text-muted-foreground" /></a>
+              <a href="#"><Facebook className="w-5 h-5 text-white-foreground" /></a>
+              <a href="#"><Twitter className="w-5 h-5 text-white-foreground" /></a>
+              <a href="#"><Instagram className="w-5 h-5 text-white-foreground" /></a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-gradient">
-              {labels.quickLinks}
-            </h4>
+            <h4 className="font-semibold mb-4 text-gradient">{labels.quickLinks}</h4>
 
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <ul className="space-y-2 text-sm text-white-foreground">
               <li><Link href="/">{labels.home}</Link></li>
               <li><Link href="/about">About</Link></li>
               <li><Link href="/contact">{labels.contactInfo}</Link></li>
@@ -147,14 +128,12 @@ export function FooterSectionEnhanced() {
             </ul>
           </div>
 
-          {/* Dynamic Categories */}
+          {/* Categories */}
           <div>
-            <h4 className="font-semibold mb-4 text-gradient">
-              {labels.newsCategories}
-            </h4>
+            <h4 className="font-semibold mb-4 text-gradient">{labels.newsCategories}</h4>
 
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              {dynamicCategories.map((cat: Category) => (
+            <ul className="space-y-2 text-sm text-white-foreground">
+              {dynamicCategories.map((cat) => (
                 <li key={cat.id}>
                   <Link
                     href={`/${cat.slug}`}
@@ -171,7 +150,7 @@ export function FooterSectionEnhanced() {
           <div>
             <h4 className="font-semibold mb-4 text-gradient">{labels.newsletter}</h4>
 
-            <p className="text-sm text-muted-foreground mb-4">{labels.subscribe}</p>
+            <p className="text-sm text-white-foreground mb-4">{labels.subscribe}</p>
 
             <form className="flex gap-2">
               <Input
@@ -194,17 +173,17 @@ export function FooterSectionEnhanced() {
 
             <div>
               <h4 className="font-semibold mb-3 text-gradient">{labels.privacyPolicy}</h4>
-              <p className="text-sm text-muted-foreground">{labels.privacyDesc}</p>
+              <p className="text-sm text-white-foreground">{labels.privacyDesc}</p>
             </div>
 
             <div>
               <h4 className="font-semibold mb-3 text-gradient">{labels.termsConditions}</h4>
-              <p className="text-sm text-muted-foreground">{labels.termsDesc}</p>
+              <p className="text-sm text-white-foreground">{labels.termsDesc}</p>
             </div>
 
             <div>
               <h4 className="font-semibold mb-3 text-gradient">{labels.contactInfo}</h4>
-              <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="space-y-2 text-sm text-white-foreground">
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4" /> {labels.email}
                 </div>
@@ -216,8 +195,7 @@ export function FooterSectionEnhanced() {
 
           </div>
 
-          {/* COPYRIGHT */}
-          <div className="text-center text-sm text-muted-foreground border-t border-border pt-8">
+          <div className="text-center text-sm text-white-foreground border-t border-border pt-8">
             <p>
               {labels.copyright}{" "}
               <a
