@@ -9,7 +9,7 @@ import { useState } from "react"
 
 export default function Header() {
   const [showMobileSearch, setShowMobileSearch] = useState(false)
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()  // ⬅️ Added `language`
 
   return (
     <header className="border-b border-border bg-card sticky top-0 z-50 shadow-sm">
@@ -33,6 +33,17 @@ export default function Header() {
             <span className="text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               {t("title")}
             </span>
+
+            {/* SHOW FLAG ONLY IF NEPALI IS SELECTED */}
+            {language === "ne" && (
+              <Image
+                src="/nepal.png"
+                alt="Nepal Flag"
+                width={32}
+                height={32}
+                className="object-contain"
+              />
+            )}
           </Link>
 
           {/* CENTER: Search Bar (Desktop Only) */}
