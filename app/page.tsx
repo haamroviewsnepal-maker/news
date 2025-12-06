@@ -11,6 +11,8 @@ import { useLanguage } from "@/contexts/language-context"
 import FooterSocialBar from "@/components/FooterSocialBar"
 import DailyInfoSection from "@/components/DailyInfoSection"
 import AdComponent from "@/components/AdComponent"
+import TrendingRates from "@/components/TrendingRates"
+
 export default function Home() {
   const [articles, setArticles] = useState([])
   const [categories, setCategories] = useState([])
@@ -62,6 +64,7 @@ export default function Home() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <AdComponent />
+        <TrendingRates />
         <FeaturedSection articles={articles} />
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mt-12">
