@@ -1,6 +1,9 @@
 "use client"
 
+<<<<<<< HEAD
 import { useEffect, useState } from "react"
+=======
+>>>>>>> 256f686221d593fc70c95def7cc40c257687a512
 import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
 import { Facebook, Instagram, Youtube, Clock } from "lucide-react"
@@ -43,6 +46,7 @@ export default function Navigation({ categories }: { categories: Category[] }) {
   }, [])
 
   return (
+<<<<<<< HEAD
     <>
       {/* BEAUTIFUL TOP BAR */}
       <div className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white">
@@ -82,6 +86,48 @@ export default function Navigation({ categories }: { categories: Category[] }) {
               <Youtube size={22} className="text-red-300" />
             </Link>
           </div>
+=======
+    <nav className="border-b border-border bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-1 overflow-x-auto py-10 scrollbar-hide">
+
+          {/* Home */}
+          <Link
+            href="/"
+            className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary whitespace-nowrap"
+          >
+            {navLabels.home}
+          </Link>
+
+          {/* Categories (Direct Click) */}
+          {categories.map((category) => (
+            <Link
+              key={category.id}
+              href={`/category/${category.slug}`}
+              className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary whitespace-nowrap flex items-center gap-1"
+            >
+              <span>{category.icon}</span>
+              {category.name}
+            </Link>
+          ))}
+
+          {/* Videos */}
+          <Link
+            href="/videos"
+            className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary whitespace-nowrap"
+          >
+            {navLabels.videos}
+          </Link>
+
+          {/* Opinions */}
+          <Link
+            href="/opinions"
+            className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary whitespace-nowrap"
+          >
+            {navLabels.opinions}
+          </Link>
+
+>>>>>>> 256f686221d593fc70c95def7cc40c257687a512
         </div>
       </div>
 
