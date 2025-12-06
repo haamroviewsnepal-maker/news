@@ -25,63 +25,70 @@ interface Category {
   color: string
 }
 
-export default function ArticleGrid({ articles, categories }: { articles: Article[]; categories: Category[] }) {
+export default function ArticleGrid({
+  articles,
+  categories,
+}: {
+  articles: Article[]
+  categories: Category[]
+}) {
   const getCategoryColor = (categoryId: string) => {
     return categories.find((c) => c.id === categoryId)?.color || "#999"
   }
 
   return (
     <section>
-      <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">ताजा समाचार</h2>
+      <h2 className="text-2xl md:text-3xl font-bold mb-6">ताजा समाचार</h2>
 
-      <div className="space-y-4 md:space-y-6">
-        {articles.map((article, index) => (
+      <div className="grid grid-cols-1 gap-6">
+        {articles.map((article) => (
           <Link
             key={article.id}
             href={`/article/${article.slug}`}
-            className="flex flex-col md:flex-row gap-4 group cursor-pointer border-b border-border pb-4 md:pb-6 last:border-b-0 hover:bg-muted/30 p-2 md:p-0 rounded transition-colors"
+            className="rounded-lg overflow-hidden shadow-sm border border-border hover:shadow-lg transition-all bg-white"
           >
-            <div className="relative w-full md:w-40 h-40 md:h-32 flex-shrink-0 overflow-hidden rounded-lg card-hover">
+            {/* TITLE ABOVE IMAGE */}
+            <h3 className="text-xl font-bold p-4 pb-2 group-hover:text-red-600 transition-colors">
+              {article.title}
+            </h3>
+
+            {/* IMAGE */}
+            <div className="relative w-full h-56 md:h-64">
               <Image
                 src={article.image || "/five.webp"}
                 alt={article.title}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                loading={index > 5 ? "lazy" : "eager"}
+                className="object-cover"
               />
-              
             </div>
 
-            <div className="flex-1 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-2 mb-2 flex-wrap">
-                  <span
-                    className="inline-block px-2 py-1 rounded text-xs font-semibold text-white"
-                    style={{ backgroundColor: getCategoryColor(article.category) }}
-                  >
-                    {article.category.toUpperCase()}
-                  </span>
-                  <span className="text-xs md:text-sm text-muted-foreground">{article.time}</span>
-                </div>
+            {/* CATEGORY + TIME */}
+            <div className="flex items-center gap-3 px-4 mt-3">
+              <span
+                className="text-xs px-2 py-1 rounded text-white font-semibold"
+                style={{ backgroundColor: getCategoryColor(article.category) }}
+              >
+                {article.category.toUpperCase()}
+              </span>
 
-                <h3 className="text-base md:text-lg font-bold text-green-600 group-hover:text-red-700 transition-colors line-clamp-2">
-                  {article.title}
-                </h3>
+              <span className="text-xs text-gray-500">{article.time}</span>
+            </div>
 
+            {/* EXCERPT */}
+            <p className="text-sm text-gray-700 px-4 mt-2 line-clamp-3">
+              {article.excerpt}
+            </p>
 
-                <p className="text-xs md:text-sm text-muted-foreground mt-2 line-clamp-2">{article.excerpt}</p>
+            {/* STATS */}
+            <div className="flex items-center gap-4 text-xs text-gray-500 px-4 py-4">
+              <span>{article.author}</span>
+
+              <div className="flex items-center gap-1">
+                <Eye className="h-4 w-4" /> {article.views}
               </div>
 
-              <div className="flex items-center gap-2 md:gap-4 text-xs md:text-sm text-muted-foreground">
-                <span>{article.author}</span>
-                <div className="flex items-center gap-1">
-                  <Eye className="h-3 w-3 md:h-4 md:w-4" />
-                  {article.views}
-                </div>
-                <div className="flex items-center gap-1">
-                  <MessageCircle className="h-3 w-3 md:h-4 md:w-4" />
-                  {article.comments}
-                </div>
+              <div className="flex items-center gap-1">
+                <MessageCircle className="h-4 w-4" /> {article.comments}
               </div>
             </div>
           </Link>
