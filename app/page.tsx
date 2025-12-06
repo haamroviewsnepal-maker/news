@@ -11,7 +11,7 @@ import { useLanguage } from "@/contexts/language-context"
 import FooterSocialBar from "@/components/FooterSocialBar"
 import DailyInfoSection from "@/components/DailyInfoSection"
 import AdComponent from "@/components/AdComponent"
-import TrendingRates from "@/components/TrendingRates"
+import TrendingRates from "@/components/trending"
 
 export default function Home() {
   const [articles, setArticles] = useState([])
