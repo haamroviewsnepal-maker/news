@@ -119,7 +119,7 @@ export default function Navigation({ categories }: { categories: Category[] }) {
     </div>
 
     {/* BREAKING NEWS */}
-    <div className="w-full overflow-hidden bg-gray-900 text-white">
+    <div className="w-full overflow-hidden bg-red-700 text-white">
       <p className="scroll-text whitespace-nowrap text-lg py-2 px-4 
         bg-red-700 text-white font-semibold tracking-wide shadow-md 
         border-l-4 border-yellow-400">
