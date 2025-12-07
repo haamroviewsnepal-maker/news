@@ -55,13 +55,13 @@ export default function Navigation({ categories }: { categories: Category[] }) {
           </div>
 
           <div className="flex items-center gap-5">
-            <Link href="#" target="_blank" className="hover:opacity-80 transition">
+            <Link href="https://www.facebook.com/haamroviewsnepal2025?mibextid=rS40aB7S9Ucbxw6v" target="_blank" className="hover:opacity-80 transition">
               <Facebook size={20} className="text-white" />
             </Link>
             <Link href="#" target="_blank" className="hover:opacity-80 transition">
               <Instagram size={20} className="text-white" />
             </Link>
-            <Link href="#" target="_blank" className="hover:opacity-80 transition">
+            <Link href="https://www.youtube.com/@HaamroViews" target="_blank" className="hover:opacity-80 transition">
               <Youtube size={22} className="text-white" />
             </Link>
           </div>
