@@ -49,7 +49,7 @@ export default function ArticleGrid({
             className="rounded-lg overflow-hidden shadow-sm border border-border hover:shadow-lg transition-all bg-white"
           >
             {/* TITLE ABOVE IMAGE */}
-            <h1 className="text-5xl font-bold p-4 pb-2 group-hover:text-red-600 text-green-600 transition-colors">
+            <h1 className="text-5xl font-bold p-4 pb-2 group-hover:text-red-600 text-blue-600 transition-colors">
               {article.title}
             </h1>
 
