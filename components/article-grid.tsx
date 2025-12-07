@@ -41,7 +41,8 @@ export default function ArticleGrid({
       <h2 className="text-5xl md:text-5xl font-bold mb-6">ताजा समाचार</h2>
 
       <div className="grid grid-cols-1 gap-6">
-        {articles.map((article) => (
+       {articles.slice(-10).map((article) => (
+
           <Link
             key={article.id}
             href={`/article/${article.slug}`}
