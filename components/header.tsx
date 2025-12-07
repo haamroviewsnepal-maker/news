@@ -1,40 +1,40 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Search, Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import LanguageToggle from "@/components/language-toggle";
-import { useLanguage } from "@/contexts/language-context";
-import MobileMenu from "./mobile-menu";
+import { useState, useEffect } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { Search, Menu } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import LanguageToggle from "@/components/language-toggle"
+import { useLanguage } from "@/contexts/language-context"
+import MobileMenu from "./mobile-menu"
 
 export default function Header() {
-  const [showMobileSearch, setShowMobileSearch] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [categories, setCategories] = useState([]);
+  const [showMobileSearch, setShowMobileSearch] = useState(false)
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
+  const [categories, setCategories] = useState([])
 
-  const { t, language } = useLanguage();
+  const { t, language } = useLanguage()
 
   useEffect(() => {
     const loadCategories = async () => {
       try {
-        const res = await fetch("/data/categories.json");
-        const data = await res.json();
-        setCategories(data.categories);
-      } catch (error) {
-        console.error("Failed to load categories:", error);
+        const res = await fetch("/data/categories.json")
+        const data = await res.json()
+        setCategories(data.categories)
+      } catch {
+        console.error("Failed to load categories")
       }
-    };
-    loadCategories();
-  }, []);
+    }
+    loadCategories()
+  }, [])
 
   return (
     <>
-      {/* ⭐ STICKY FIRST LAYER */}
+      {/* ⭐ TOP STICKY BAR */}
       <div className="sticky top-0 z-50 bg-gradient-to-r from-green-600 via-purple-600 to-red-600 text-white text-sm py-1 shadow">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-          <span className="text-sm font-bold">
+          <span className="text-sm font-bold text-white">
             {language === "en"
               ? "For truthful, factual, and impartial news."
               : "सत्य, तथ्य र निष्पक्ष समाचारको लागि"}
@@ -44,14 +44,17 @@ export default function Header() {
       </div>
 
       {/* ⭐ MAIN HEADER */}
-      <header className="bg-white text-black shadow">
-        <div className="w-full mx-auto px-4 py-3 flex items-center justify-between bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white">
+      <header className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white shadow">
+        <div className="w-full mx-auto px-4 py-3 flex items-center justify-between">
 
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-3">
             <Image src="/logo.png" alt="Logo" width={60} height={60} />
             <div className="flex items-center gap-2">
-              <span className="text-4xl font-extrabold tracking-wide">{t("title")}</span>
+              <span className="text-4xl font-extrabold tracking-wide text-white">
+                {t("title")}
+              </span>
+
               {language === "ne" && (
                 <Image
                   src="/nepal.png"
@@ -64,55 +67,44 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* DESKTOP SEARCH */}
-          <div className="hidden md:flex items-center gap-3">
-            <form action="/search" className="relative">
-              <input
-                type="search"
-                name="q"
-                placeholder={t("searchPlaceholder")}
-                className="px-4 py-2 rounded border bg-white text-black w-64"
-              />
-              <Search className="absolute right-3 top-2.5 h-5 w-5 text-gray-500" />
-            </form>
-            <Button variant="outline">{t("signIn")}</Button>
-          </div>
-
           {/* MOBILE BUTTONS */}
           <div className="flex items-center gap-2">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setShowMobileSearch(!showMobileSearch)}
+              className="text-white"
             >
-              <Search className="h-6 w-6 text-gray-800" />
+              <Search className="h-6 w-6 text-white" />
             </Button>
+
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setShowMobileMenu(true)}
+              className="text-white"
             >
-              <Menu className="h-7 w-7 text-gray-800" />
+              <Menu className="h-7 w-7 text-white" />
             </Button>
           </div>
         </div>
 
-        {/* MOBILE SEARCH BAR */}
+        {/* ⭐ MOBILE SEARCH BAR */}
         {showMobileSearch && (
           <div className="px-4 pb-3">
             <form action="/search" className="flex gap-2">
               <input
                 type="search"
                 name="q"
-                className="flex-1 px-4 py-2 border rounded-lg"
                 placeholder={t("searchPlaceholder")}
+                className="flex-1 px-4 py-2 border rounded-lg text-black"
               />
               <Button size="sm">{t("searchButton")}</Button>
             </form>
           </div>
         )}
 
-        {/* MOBILE MENU */}
+        {/* ⭐ MOBILE MENU DRAWER */}
         <MobileMenu
           open={showMobileMenu}
           onClose={() => setShowMobileMenu(false)}
@@ -120,5 +112,5 @@ export default function Header() {
         />
       </header>
     </>
-  );
+  )
 }
