@@ -79,7 +79,7 @@ export default function Navigation({ categories }: { categories: Category[] }) {
       {/* HOME — BLUE */}
       <Link
         href="/"
-        className="px-4 py-2 text-lg font-bold whitespace-nowrap 
+        className="px-4 py-2 text-l font-bold whitespace-nowrap 
         bg-blue-600 text-white rounded-lg shadow-md"
       >
         {navLabels.home}
@@ -90,8 +90,8 @@ export default function Navigation({ categories }: { categories: Category[] }) {
         <Link
           key={category.id}
           href={`/category/${category.slug}`}
-          className="px-4 py-2 text-lg font-bold whitespace-nowrap flex items-center gap-2
-          bg-green-600 text-white rounded-lg shadow-md"
+          className="px-4 py-2 text-sm font-bold whitespace-nowrap flex items-center gap-2
+          bg-blue-600 text-white rounded-lg shadow-md"
         >
           <span>{category.icon}</span>
           {category.name}
@@ -101,8 +101,8 @@ export default function Navigation({ categories }: { categories: Category[] }) {
       {/* VIDEOS — PINK */}
       <Link
         href="/videos"
-        className="px-4 py-2 text-lg font-bold whitespace-nowrap 
-        bg-pink-600 text-white rounded-lg shadow-md"
+        className="px-4 py-2 text-sm font-bold whitespace-nowrap 
+        bg-blue-600 text-white rounded-lg shadow-md"
       >
         {navLabels.videos}
       </Link>
@@ -110,8 +110,8 @@ export default function Navigation({ categories }: { categories: Category[] }) {
       {/* OPINIONS — ORANGE */}
       <Link
         href="/opinions"
-        className="px-4 py-2 text-lg font-bold whitespace-nowrap 
-        bg-orange-600 text-white rounded-lg shadow-md"
+        className="px-4 py-2 text-sm font-bold whitespace-nowrap 
+        bg-blue-600 text-white rounded-lg shadow-md"
       >
         {navLabels.opinions}
       </Link>
