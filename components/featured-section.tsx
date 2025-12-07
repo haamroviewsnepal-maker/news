@@ -16,7 +16,7 @@ interface Article {
 }
 
 export default function FeaturedSection({ articles }: { articles: Article[] }) {
-  const featured = articles.slice(-3)
+  const featured = articles.slice(0,3)
 
   return (
     <section className="mb-8">
